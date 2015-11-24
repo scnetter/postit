@@ -1,9 +1,10 @@
-<h4><%= @post.title %></h4>
+<%= render @post.categories %>
 
+<%= render 'shared/content.title', title: @post.title %>
 <div class='well'>
   <%= @post.url %>
   <br />
   <%= @post.description %>
   <br />
-  Submitted by: <%= @post.creator.username %>.
+  <span class='quiet'>Submitted by:</span> <%= @post.creator.username %>.
 </div>
