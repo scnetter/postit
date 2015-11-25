@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def create
-
+    binding.pry
   end
 
   def edit

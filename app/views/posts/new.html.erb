@@ -1,0 +1,19 @@
+<h4>Pure HTML Form</h4>
+<form action='/posts' method='post'>
+  Title: <input type='text' name='title'>
+  <br />
+  <input type='submit'>
+</form>  
+
+
+<h4>With Form Helper</h4>
+<%= form_tag '/posts' do %>
+  <%= label_tag :title %>
+  <%= text_field_tag :title %>
+  <%= label_tag :url %>
+  <%= text_field_tag :url %>
+  <%= label_tag :description %>
+  <%= text_field_tag :description %>
+  <br />
+  <%= submit_tag "Create Posts", class: 'btn btn-primary' %>
+<% end %>
