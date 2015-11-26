@@ -1,4 +1,4 @@
-<h4>Pure HTML Form</h4>
+<!-- <h4>Pure HTML Form</h4>
 <form action='/posts' method='post'>
   Title: <input type='text' name='title'>
   <br />
@@ -15,5 +15,10 @@
   <%= label_tag :description %>
   <%= text_field_tag :description %>
   <br />
-  <%= submit_tag "Create Posts", class: 'btn btn-primary' %>
+  <%= submit_tag "Create Post", class: 'btn btn-primary' %>
 <% end %>
+
+<h4>Model Backed Form Helper </h4>
+-->
+
+<%= render 'form', title: "Create Post" %>

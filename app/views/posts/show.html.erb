@@ -1,6 +1,16 @@
 <%= render @post.categories %>
 
 <%= render 'shared/content.title', title: @post.title %>
+
+<%= render 'shared/error', obj: @post %>
+
+<h4>Create a Comment:</h4>
+<%= form_for [@post,@comment] do |f| %>
+  <%= f.text_area :body %>
+  <br />
+  <%= f.submit "Create Comment", class: 'btn btn-primary' %>
+<% end %>
+
 <div class='well'>
   <%= @post.url %>
   <br />
@@ -8,3 +18,11 @@
   <br />
   <span class='quiet'>Submitted by:</span> <%= @post.creator.username %>.
 </div>
+<%= link_to 'edit', edit_post_path(@post) %>
+
+<h4>Comments:</h4>
+<% @post.comments.each do |comment| %>
+<div class='well span8'>
+  <%= comment.body %>
+</div>
+<% end %>
