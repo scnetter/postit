@@ -1,0 +1,6 @@
+<h4><%= title %></h4>
+<%= form_for [@post,@comment] do |f| %>
+  <%= f.text_area :body %>
+  <br />
+  <%= f.submit "Create Comment", class: 'btn btn-primary' %>
+<% end %>

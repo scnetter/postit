@@ -1,15 +1,14 @@
+<p class='pull-right'>
+  [<%= link_to 'edit this post', edit_post_path(@post) %>]
+</p>
+
 <%= render @post.categories %>
 
 <%= render 'shared/content.title', title: @post.title %>
 
 <%= render 'shared/error', obj: @post %>
 
-<h4>Create a Comment:</h4>
-<%= form_for [@post,@comment] do |f| %>
-  <%= f.text_area :body %>
-  <br />
-  <%= f.submit "Create Comment", class: 'btn btn-primary' %>
-<% end %>
+<%= render 'posts/comment_form', title: "Create a Comment" %>
 
 <div class='well'>
   <%= @post.url %>
@@ -18,7 +17,6 @@
   <br />
   <span class='quiet'>Submitted by:</span> <%= @post.creator.username %>.
 </div>
-<%= link_to 'edit', edit_post_path(@post) %>
 
 <h4>Comments:</h4>
 <% @post.comments.each do |comment| %>

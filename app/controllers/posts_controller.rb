@@ -19,15 +19,14 @@ class PostsController < ApplicationController
     @post.creator = User.first
 
     if @post.save
-      flash['notice'] = "Your post was created"
+      flash['notice'] = "Your post was created."
       redirect_to posts_path
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
 
