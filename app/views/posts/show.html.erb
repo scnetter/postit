@@ -6,12 +6,10 @@
 
 <%= render 'shared/content_title', title: @post.title %>
 
-<%= render 'shared/error', obj: @post %>
-
 <%= render 'posts/comment_form', title: "Create a Comment" %>
 
 <div class='well'>
-  <%= @post.url %>
+  <%= link_to @post.title, fix_url(@post.url) %>
   <br />
   <%= @post.description %>
   <br />

@@ -1,5 +1,6 @@
 <h4><%= title %></h4>
 <%= form_for [@post,@comment] do |f| %>
+  <%= render 'shared/errors', obj: @comment %>
   <%= f.text_area :body %>
   <br />
   <%= f.submit "Create Comment", class: 'btn btn-primary' %>
