@@ -3,11 +3,7 @@
 </p>
 
 <%= render @post.categories %>
-
 <%= render 'shared/content_title', title: @post.title %>
-
-<%= render 'posts/comment_form', title: "Create a Comment" %>
-
 <div class='well'>
   <%= link_to @post.title, fix_url(@post.url) %>
   <br />
@@ -16,9 +12,15 @@
   <span class='quiet'>Submitted by:</span> <%= @post.creator.username %>.
 </div>
 
+<%= render 'posts/comment_form', title: "Comment on this post:" %>
+
 <h4>Comments:</h4>
 <% @post.comments.each do |comment| %>
 <div class='well span8'>
-  <%= comment.body %>
+  "<%= comment.body %>"
+  <p>
+    <span class='quiet'>by <%= link_to comment.creator.username, '' %></span> 
+    <small>at <%= comment.created_at %></small>
+  </p>
 </div>
 <% end %>
