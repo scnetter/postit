@@ -6,7 +6,7 @@
     <p>
       <span class='quiet'>Submitted by: </span><%= post.creator.username %>.
     </p>
-    <p><small>Created at: <%= post.created_at %></small></p>
+    <p><small>Created at: <%= display_datetime(post.created_at) %></small></p>
     <span>
       <%= link_to "#{post.comments.size} comments", post %>
     </span>
