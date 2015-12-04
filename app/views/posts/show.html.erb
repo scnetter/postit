@@ -16,11 +16,13 @@
 
 <h4>Comments:</h4>
 <% @post.comments.each do |comment| %>
-<div class='well span8'>
-  "<%= comment.body %>"
-  <p>
-    <span class='quiet'>by <%= link_to comment.creator.username, '' %></span>
-    <small>at <%= display_datetime(comment.created_at) %></small>
-  </p>
-</div>
+  <% if !comment.new_record? %>
+    <div class='well span8'>
+      "<%= comment.body %>"
+      <p>
+        <span class='quiet'>by <%= link_to comment.creator.username, '' %></span>
+        <small>at <%= display_datetime(comment.created_at) %></small>
+      </p>
+    </div>
+  <% end %>
 <% end %>
