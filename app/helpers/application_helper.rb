@@ -1,7 +1,6 @@
 module ApplicationHelper
   def fix_url(str)
-    (str.starts_with?('http://') || str.starts_with?('https://')) ?
-      str : 'http://' + str
+     /http:\/\/|^https:\/\//.match(str) ? str : "http://#{str}"
   end
 
   def display_datetime(dt)
