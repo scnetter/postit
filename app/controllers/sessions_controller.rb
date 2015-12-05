@@ -1,13 +1,7 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
-    flash['error'] = nil
-    # 1. get user
-    # 2. password match?
-    # 3. If yes, set session data
-    # 4. If no, render new form again.
     user = User.find_by(username: params[:username])
 
     if user && user.authenticate(params[:password])
@@ -15,13 +9,14 @@ class SessionsController < ApplicationController
       flash['notice'] = "#{user.username} has been logged in."
       redirect_to root_path
     else
-      flash['error'] = 'There is a problem with your username or password.'
+      flash.now['error'] = 'There is a problem with your username or password.'
       render :new
     end
   end
 
   def destroy
     session[:user_id] = nil
+    flash['notice'] = 'You\'ve logged out. Thanks for visiting!'
     redirect_to root_path
   end
 
