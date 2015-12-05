@@ -54,3 +54,16 @@ div.comment_votes {
 .logout {
   float: right;
 }
+
+.btn.btn-custom {
+    color: #f2edf2;
+    background-color: #5cb88e;
+    background-image: linear-gradient(to bottom, #97cc97, #419461);
+    border-color: #3f7e8f #3E8F3E #3E8F3E;
+}
+.btn.btn-custom:hover {
+    color: #f2edf2;
+    background-color: #419461;
+    background-image: linear-gradient(to bottom, #419461, #419461);
+    border-color: #3f7e8f #3E8F3E #3E8F3E;
+}

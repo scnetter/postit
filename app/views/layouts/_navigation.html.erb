@@ -1,14 +1,23 @@
 <ul class="nav">
   <li>
-    <%= link_to "Postit!", root_path, :class => 'brand' %>
+    <!-- <%= link_to "Postit!", root_path, :class => 'brand' %> -->
+    <%= link_to root_path, class: 'brand' do %>
+      Postit!
+    <% end %>
   </li>
 </ul>
 <% if logged_in? %>
   <div class='nav_item'>
-    <%= link_to 'New Post', new_post_path, class: 'btn btn-success btn-small' %>
+    <!-- <%= link_to 'New Post', new_post_path, class: 'btn btn-success' %> -->
+    <%= link_to new_post_path, class: 'btn btn-success' do %>
+      <span class='icon icon-pencil'></span> New Post
+    <% end %>
   </div>
   <div class='logout'>
-    <%= link_to 'Logout', logout_path, class: 'btn btn-small' %>
+    <%= link_to logout_path, class: 'btn btn-small' do %>
+      <span class='icon icon-off'></span> Logout
+    <% end %>
+    <!-- <%= link_to 'Logout', logout_path, class: 'btn btn-small' %> -->
   </div>
   <div class='nav-login'>
     <i class='icon-user'></i>
@@ -16,15 +25,22 @@
   </div>
 <% else %>
   <div class='nav_item'>
-    <%= link_to 'Register', register_path, class: 'btn btn-inverse btn-small' %>
+    <%= link_to 'Register', register_path, class: 'btn btn-inverse' %>
   </div>
+  <!-- <div class='nav_item'>
+    <%= link_to 'Login', login_path, class: 'btn btn-custom btn-small' %>
+  </div> -->
   <div class='nav_item'>
-    <%= link_to 'Login', login_path, class: 'btn btn-success btn-small' %>
+    <%= link_to login_path, class: "btn btn-custom" do %>
+      <span class="icon icon-arrow-right"></span>  Login
+    <% end %>
   </div>
+
 <% end %>
 <div class='btn-group nav_item'>
-  <%= link_to '#', class: 'btn btn-small dropdown-toggle', 'data-toggle' => 'dropdown' do %>
-    Categories <span class='caret'></span>
+  <%= link_to '#', class: 'btn dropdown-toggle', 'data-toggle' => 'dropdown' do %>
+    <span class='icon icon-list'></span> Categories
+     <span class='caret'></span>
   <% end %>
   <ul class='dropdown-menu'>
     <% Category.all.each do |category| %>
