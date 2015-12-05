@@ -1,6 +1,8 @@
-<p class='pull-right'>
-  [<%= link_to 'edit this post', edit_post_path(@post) %>]
-</p>
+<% if logged_in? && is_owner? %>
+  <p class='pull-right'>
+    [<%= link_to 'edit this post', edit_post_path(@post) %>]
+  </p>
+<% end %>
 
 <%= render @post.categories %>
 <%= render 'shared/content_title', title: @post.title %>
@@ -12,7 +14,9 @@
   <span class='quiet'>Submitted by:</span> <%= @post.creator.username %>.
 </div>
 
-<%= render 'posts/comment_form', title: "Comment on this post:" %>
+<% if logged_in? %>
+  <%= render 'posts/comment_form', title: "Comment on this post:" %>
+<% end %>
 
 <h4>Comments:</h4>
 <% @post.comments.each do |comment| %>
