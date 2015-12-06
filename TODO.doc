@@ -3,3 +3,6 @@
 1. Limit comment/post body and description. Display char max and error if over on submitting.
   1a. Ajaxify the character count and display an active account of chars remaining.
 2. Update fix_url to use match obj.
+3. No white space for userids/password - format checking
+4. replace is_owner? with before_action (create/update) - creator_only
+5. Ajaxify tab contents (Posts/Comments)

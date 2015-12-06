@@ -4,8 +4,8 @@ class Post < ActiveRecord::Base
   has_many :post_categories
   has_many :categories, through: :post_categories
 
-  validates :title, presence: true, length: {minimum: 5}
+  validates :title, presence: true, length: {minimum: 5, maximum: 25}
   validates :url, presence: true, uniqueness: true
-  validates :description, presence: true
+  validates :description, presence: true, length: {maximum: 150}
   default_scope { order(updated_at: :desc) }
 end

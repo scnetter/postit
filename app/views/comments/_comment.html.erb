@@ -1,0 +1,15 @@
+<% with_post_link ||= false %>
+
+<div class='well span8'>
+  "<%= comment.body %>"
+  <% if with_post_link %>
+    on <%= link_to comment.post.title, post_path(comment.post) %>
+  <% end %>
+  <p>
+    <% if !with_post_link %>
+      <span class='quiet'>by
+        <%= link_to comment.creator.username, user_path(comment.creator) %></span>
+    <% end %>
+    <small>at <%= display_datetime(comment.created_at) %></small>
+  </p>
+</div>
