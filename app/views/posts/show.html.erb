@@ -11,7 +11,8 @@
   <br />
   <%= @post.description %>
   <br />
-  <span class='quiet'>Submitted by:</span> <%= @post.creator.username %>.
+  <span class='quiet'>Submitted by:</span>
+    <%= link_to @post.creator.username, user_path(@post.creator) %>.
 </div>
 
 <% if logged_in? %>
