@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   before_action :require_user, except: [:index, :show]
   before_action :is_owner?, only: [:edit]
   helper_method :is_owner?
+
   def index
     @posts = Post.all
   end

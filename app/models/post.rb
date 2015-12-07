@@ -6,6 +6,6 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: true, length: {minimum: 5, maximum: 25}
   validates :url, presence: true, uniqueness: true
-  validates :description, presence: true, length: {maximum: 150}
+  validates :description, presence: true, length: {maximum: 300}
   default_scope { order(updated_at: :desc) }
 end
