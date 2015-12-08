@@ -42,7 +42,6 @@ class PostsController < ApplicationController
   end
 
   def vote
-    binding.pry
     @vote = Vote.create(voteable: @post, creator: current_user,
      vote: params[:vote])
     unless @vote.valid? then flash['error'] = 'You can only vote once.' end
@@ -52,7 +51,7 @@ class PostsController < ApplicationController
   def is_owner?
     current_user.id == @post.creator.id
   end
-  
+
   private
   def set_post
     @post = Post.find(params[:id])
