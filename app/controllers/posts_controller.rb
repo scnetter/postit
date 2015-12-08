@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :set_post, only: [:show, :edit, :update]
+  before_action :set_post, only: [:show, :edit, :update, :vote]
   before_action :require_user, except: [:index, :show]
   before_action :is_owner?, only: [:edit]
   helper_method :is_owner?
@@ -41,12 +41,24 @@ class PostsController < ApplicationController
     end
   end
 
+  def vote
+    binding.pry
+    @vote = Vote.create(voteable: @post, creator: current_user,
+      vote: true_or_false(params[:vote]))
+    redirect_to :back
+  end
+
   def is_owner?
     current_user.id == @post.creator.id
   end
 
-  private
 
+
+  def true_or_false(str)
+    return false if str.downcase == 'false'
+    true
+  end
+  private
   def set_post
     @post = Post.find(params[:id])
   end
