@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   helper_method :is_owner?
 
   def index
-    @posts = Post.all
+    @posts = Post.all.sort_by{ |post| post.total_votes }.reverse
   end
 
   def show

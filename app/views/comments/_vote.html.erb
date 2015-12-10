@@ -1,17 +1,23 @@
 <div class='span0 well text-center'>
+  <span id='thumbsup'><%= comment.up_votes %></span>
   <% if logged_in? %>
     <%= link_to vote_post_comment_path(comment.post_id, comment, vote: true),
       method: :post  do %>
-      <i class='icon-arrow-up'></i>
+      <i class='icon-thumbs-up'></i>
     <% end %>
-    <br/>
+  <% else %>
+    <i class='icon-thumbs-up'></i>
   <% end %>
-  <%= comment.total_votes %> Votes
+  <br/>
+  <%= comment.total_votes %> total
+  <br/>
+  <span id='thumbsdown'><%= comment.down_votes %></span>
   <% if logged_in? %>
-    <br/>
     <%= link_to vote_post_comment_path(comment.post_id, comment, vote: false),
       method: :post do %>
-      <i class='icon-arrow-down'></i>
+      <i class='icon-thumbs-down'></i>
     <% end %>
+  <% else %>
+    <i class='icon-thumbs-down'></i>
   <% end %>
 </div>
