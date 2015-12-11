@@ -1,5 +1,5 @@
 <div class='row'>
-  <%= render 'vote', post: post %>
+  <%= render 'posts/vote', post: post %>
   <div class='well span8'>
     <%= render post.categories %>
     <h4><%= link_to post.title, fix_url(post.url) %></h4>

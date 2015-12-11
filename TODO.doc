@@ -6,3 +6,4 @@
 3. No white space for userids/password - format checking
 4. replace is_owner? with before_action (create/update) - creator_only
 5. Ajaxify tab contents (Posts/Comments)
+6. Add sort by newest to nav bar so newest posts are at top of list.

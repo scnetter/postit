@@ -1,7 +1,7 @@
 <div class='span0 well text-center'>
   <span id='thumbsup'><%= comment.up_votes %></span>
   <% if logged_in? %>
-    <%= link_to vote_post_comment_path(comment.post_id, comment, vote: true),
+    <%= link_to vote_post_comment_path(comment.post, comment, vote: true),
       method: :post  do %>
       <i class='icon-thumbs-up'></i>
     <% end %>
@@ -13,7 +13,7 @@
   <br/>
   <span id='thumbsdown'><%= comment.down_votes %></span>
   <% if logged_in? %>
-    <%= link_to vote_post_comment_path(comment.post_id, comment, vote: false),
+    <%= link_to vote_post_comment_path(comment.post, comment, vote: false),
       method: :post do %>
       <i class='icon-thumbs-down'></i>
     <% end %>
