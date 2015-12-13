@@ -15,4 +15,15 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
-
+// AJAX Pattern
+// $(document).ready(function() {
+//   $('#hit_form input').click(function() { //1. Unobstrusive js event listener
+//     $.ajax({ //2. Trigger ajax`
+//       type: 'POST',
+//       data: {param1: 'hi', param2: 'there'}
+//       url: '/player/hit'
+//     }).done(function(msg) { // 3. Handle response
+//       $('#some_element').html(msg);
+//     })
+//   });
+// });
