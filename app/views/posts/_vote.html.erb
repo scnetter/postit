@@ -13,7 +13,7 @@
   <span id='post_<%=post.id%>_votes'><%= post.total_votes %></span> total
   <br/>
   <span id='thumbsdown_<%=post.id%>' >
-    <%= post.up_votes %></span>
+    <%= post.down_votes %></span>
   <% if logged_in? %>
     <%= link_to vote_post_path(post, vote: false),
       method: :post, remote: :true do %>
