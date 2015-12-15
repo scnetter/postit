@@ -24,4 +24,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_admin
+    access_denied unless logged_in? && current_user.admin?
+  end
+
+  def access_denied
+    flash['error'] = 'Only allowed for administrators.'
+    redirect_to root_path
+  end
+
 end

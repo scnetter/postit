@@ -16,4 +16,12 @@ class User < ActiveRecord::Base
   def generate_slug
     self.slug = self.username.gsub(' ', '-').downcase
   end
+
+  def admin?
+    self.role == 'admin'
+  end
+
+  def moderator?
+    self.role =='moderator'
+  end
 end
