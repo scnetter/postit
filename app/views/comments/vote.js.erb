@@ -1,0 +1,3 @@
+$('#comment_<%= @comment.id %>_votes').html('<%= @comment.total_votes %>');
+$('#thumbsup_<%= @comment.id %>').html('<%= @comment.up_votes %>');
+$('#thumbsdown_<%= @comment.id %>').html('<%= @comment.down_votes %>');

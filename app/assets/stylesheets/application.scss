@@ -68,10 +68,10 @@ div.comment_votes {
     border-color: #3f7e8f #3E8F3E #3E8F3E;
 }
 
-#thumbsup {
-  color: green;
+span[id*='thumbsup'] {
+  color: green
 }
 
-#thumbsdown {
+span[id*='thumbsdown'] {
   color: red
 }

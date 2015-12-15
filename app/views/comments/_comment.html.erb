@@ -1,7 +1,7 @@
 <% with_post_link ||= false %>
 
 <div class='row'>
-  <%= render 'comments/vote', comment: comment %>
+  <%= render 'comments/vote', comment: comment, post: comment.post %>
   <div class='well span8'>
     "<%= comment.body %>"
     <% if with_post_link %>
