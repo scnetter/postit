@@ -1,3 +1,7 @@
-$('#comment_<%= @comment.id %>_votes').html('<%= @comment.total_votes %>');
-$('#thumbsup_<%= @comment.id %>').html('<%= @comment.up_votes %>');
-$('#thumbsdown_<%= @comment.id %>').html('<%= @comment.down_votes %>');
+<% unless @vote.valid? %>
+  alert('You can only vote once.')
+<% else %>
+  $('#comment_<%= @comment.id %>_votes').html('<%= @comment.total_votes %>');
+  $('#thumbsup_<%= @comment.id %>').html('<%= @comment.up_votes %>');
+  $('#thumbsdown_<%= @comment.id %>').html('<%= @comment.down_votes %>');
+<% end %>

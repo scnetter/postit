@@ -42,19 +42,19 @@ class PostsController < ApplicationController
   end
 
   def vote
-    vote = Vote.create(voteable: @post, creator: current_user,
+    @vote = Vote.create(voteable: @post, creator: current_user,
      vote: params[:vote])
     # unless @vote.valid? then flash['error'] = 'You can only vote once.' end
     # redirect_to :back
     respond_to do |format|
+      
       format.html {
-        unless vote.valid? then flash['error'] = 'You can only vote once.' end
+        unless @vote.valid? then flash['error'] = 'You can only vote once.' end
         redirect_to :back, notice: 'Your vote was counted.'
       }
 
-      format.js {
-        unless vote.valid? then flash.now['error'] = 'You can only vote once.' end
-      }
+      format.js do
+      end
     end
   end
 
